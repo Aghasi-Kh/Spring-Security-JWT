@@ -2,7 +2,6 @@ package com.example.springsecurity.model;
 
 import lombok.Data;
 
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,20 +9,20 @@ import java.util.List;
 @Data
 public class User extends BaseEntity {
 
-    private String username;
+  private String username;
 
-    private String firstName;
+  private String firstName;
 
-    private String lastName;
+  private String lastName;
 
-    private String email;
+  private String email;
 
-    private String password;
+  private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_roles",
-    joinColumns = {@JoinColumn(name = "user_id" ,referencedColumnName = "id")},
-    inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")})
-    private List<Role> roles;
-
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(
+      name = "user_roles",
+      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+      inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
+  private List<Role> roles;
 }
